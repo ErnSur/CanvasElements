@@ -1,0 +1,14 @@
+{
+  "name": "com.quickeye.utility",
+  "displayName": "QuickEye Utility",
+  "version": "1.0.0",
+  "author": "Ernest Sury\u015b",
+  "type": "library",
+  "samples": [
+    {
+      "displayName": "Character creation screen",
+      "description": "Basic usage of the Containers and CanvasElements.",
+      "path": "Samples~/CharacterCreationScreen"
+    }
+  ]
+}
