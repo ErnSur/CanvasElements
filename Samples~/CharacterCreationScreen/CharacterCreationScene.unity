@@ -43,7 +43,7 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 11
   m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -118,8 +118,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    maxJobWorkers: 0
-    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -180,7 +178,8 @@ MonoBehaviour:
   _statsContainer: {fileID: 197010655}
   _hpLabel: {fileID: 149955534}
   _nameLabel: {fileID: 1431258086}
-  _nothingSelectedAvatar: {fileID: -4500778559983003615, guid: 67e90e71de69c9442a2102c324960928, type: 3}
+  _nothingSelectedAvatar: {fileID: -4500778559983003615, guid: 67e90e71de69c9442a2102c324960928,
+    type: 3}
 --- !u!114 &39627984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +195,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.88350004, b: 0.41037738, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -272,9 +270,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _galleryItems:
-    _itemPrefab: {fileID: 5603739950771278510, guid: 0259ddd5c2c53c9428da98c0358dfe90, type: 3}
-    _transform: {fileID: 1592544573}
-    _items: []
+    itemPrefab: {fileID: 5603739950771278510, guid: 0259ddd5c2c53c9428da98c0358dfe90,
+      type: 3}
+    transform: {fileID: 1592544573}
+    items: []
 --- !u!114 &75797899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +289,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.8570518, g: 1, b: 0.16509432, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -365,7 +363,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -506,7 +503,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &357460817
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,9 +610,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _galleryItems:
-    _itemPrefab: {fileID: 9043650147068828822, guid: 42ceba1b555e78e4a9e853fabf089a55, type: 3}
-    _transform: {fileID: 202937907}
-    _items: []
+    itemPrefab: {fileID: 9043650147068828822, guid: 42ceba1b555e78e4a9e853fabf089a55,
+      type: 3}
+    transform: {fileID: 202937907}
+    items: []
 --- !u!114 &357460823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,7 +629,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.3160377, g: 1, b: 0.9797011, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -765,7 +761,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1026,7 +1021,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1101,7 +1095,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1189,7 +1182,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &1618388985
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1249,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1334,22 +1325,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectableFighters:
-  - avatar: {fileID: -9158627825543105671, guid: 67e90e71de69c9442a2102c324960928, type: 3}
+  - avatar: {fileID: -9158627825543105671, guid: 67e90e71de69c9442a2102c324960928,
+      type: 3}
     skills:
-    - icon: {fileID: 1752313724658198474, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
-    - icon: {fileID: -1140953881901911216, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
+    - icon: {fileID: 1752313724658198474, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
+    - icon: {fileID: -1140953881901911216, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
     hp: 3
     name: Baldie
-  - avatar: {fileID: -7787469832217531810, guid: 67e90e71de69c9442a2102c324960928, type: 3}
+  - avatar: {fileID: -7787469832217531810, guid: 67e90e71de69c9442a2102c324960928,
+      type: 3}
     skills:
-    - icon: {fileID: -1388515766092869844, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
-    - icon: {fileID: 3672223182082440460, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
+    - icon: {fileID: -1388515766092869844, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
+    - icon: {fileID: 3672223182082440460, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
     hp: 10
     name: Mom
   - avatar: {fileID: 603769829418907633, guid: 67e90e71de69c9442a2102c324960928, type: 3}
     skills:
-    - icon: {fileID: -6246062721824389004, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
-    - icon: {fileID: 7119002349883303594, guid: faff39d6a0c63a84d8dc50d87cb59f26, type: 3}
+    - icon: {fileID: -6246062721824389004, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
+    - icon: {fileID: 7119002349883303594, guid: faff39d6a0c63a84d8dc50d87cb59f26,
+        type: 3}
     hp: 5
     name: Bully
 --- !u!114 &1921759792
@@ -1367,7 +1366,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.5105315, g: 0.21226418, b: 1, a: 1}
   m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
