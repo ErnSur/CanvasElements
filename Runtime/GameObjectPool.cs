@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace QuickEye.Utility
 {
-    [System.Serializable]
+    [Serializable]
     public class GameObjectPool<T> where T : Component
     {
         [SerializeField]
@@ -18,15 +20,9 @@ namespace QuickEye.Utility
         private readonly Stack<T> available = new Stack<T>();
         private readonly HashSet<T> rented = new HashSet<T>();
 
-        public int CountAll => CountRented + CountAvailable;
-        public int CountRented => rented.Count;
-        public int CountAvailable => available.Count;
-
-        public T Original => original;
-        public Transform Parent => parent;
-
-        // Empty Ctr is needed for proper serialization
+        // Empty constructor is needed for proper unity serialization
         public GameObjectPool() { }
+
         public GameObjectPool(Transform parent, T original, int size)
         {
             this.parent = parent;
@@ -35,9 +31,16 @@ namespace QuickEye.Utility
             Initialize();
         }
 
+        public int CountAll => CountRented + CountAvailable;
+        public int CountRented => rented.Count;
+        public int CountAvailable => available.Count;
+
+        public T Original => original;
+        public Transform Parent => parent;
+
         public void Initialize()
         {
-            for (int i = 0; i < startSize; i++)
+            for (var i = 0; i < startSize; i++)
                 available.Push(CreateObject());
         }
 
@@ -52,7 +55,7 @@ namespace QuickEye.Utility
         {
             if (available.Contains(obj))
             {
-                Debug.LogWarning($"Trying to return already released object");
+                Debug.LogWarning("Trying to return already released object");
                 return;
             }
 

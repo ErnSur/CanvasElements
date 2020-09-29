@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace QuickEye.Utility
 {
@@ -9,43 +10,105 @@ namespace QuickEye.Utility
     public class Container<T> : IList<T>, IReadOnlyList<T> where T : Component
     {
         [SerializeField]
-        private T _itemPrefab;
+        private T itemPrefab;
 
         [SerializeField]
-        protected Transform _transform;
+        protected Transform transform;
 
         [SerializeField]
-        protected List<T> _items = new List<T>();
+        protected List<T> items = new List<T>();
 
-        public T ItemPrefab => _itemPrefab;
+        public Container() { }
+
+        public Container(Transform transform, T itemPrefab)
+        {
+            this.transform = transform;
+            this.itemPrefab = itemPrefab;
+        }
+
+        public T ItemPrefab => itemPrefab;
 
         public virtual Transform Transform
         {
-            get => _transform;
+            get => transform;
             set
             {
-                if (_transform == value)
+                if (transform == value)
                     return;
 
-                _transform = value;
-                _items.ForEach(i => i.transform.SetParent(_transform));
+                transform = value;
+                items.ForEach(i => i.transform.SetParent(transform));
             }
         }
 
-        public int Count => _items.Count;
+        public int Count => items.Count;
 
         public bool IsReadOnly => false;
 
         public T this[int i]
         {
-            get => _items[i];
-            set => _items[i] = value;
+            get => items[i];
+            set => items[i] = value;
         }
-        public Container() { }
-        public Container(Transform transform, T itemPrefab)
+
+        public void Add(T item)
         {
-            _transform = transform;
-            _itemPrefab = itemPrefab;
+            if (item.transform.parent != transform)
+                item.transform.SetParent(transform);
+            items.Add(item);
+        }
+
+        public void Insert(int index, T item)
+        {
+            if (item.transform.parent != transform)
+                item.transform.SetParent(transform);
+            items.Insert(index, item);
+        }
+
+        public bool Remove(T item)
+        {
+            if (items.Remove(item))
+            {
+                OnRemove(item);
+                return true;
+            }
+
+            return false;
+        }
+
+        public void RemoveAt(int index)
+        {
+            Remove(items[index]);
+        }
+
+        public void Clear()
+        {
+            for (var i = items.Count - 1; i >= 0; i--) Remove(items[i]);
+        }
+
+        public bool Contains(T item)
+        {
+            return items.Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            items.CopyTo(array, arrayIndex);
+        }
+
+        public int IndexOf(T item)
+        {
+            return items.IndexOf(item);
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return items.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
 
         public T AddNew()
@@ -55,61 +118,14 @@ namespace QuickEye.Utility
             return item;
         }
 
-        public void Add(T item)
-        {
-            if (item.transform.parent != _transform)
-                item.transform.SetParent(_transform);
-            _items.Add(item);
-        }
-
-        public void Insert(int index, T item)
-        {
-            if (item.transform.parent != _transform)
-                item.transform.SetParent(_transform);
-            _items.Insert(index, item);
-        }
-
-        public bool Remove(T item)
-        {
-            if (_items.Remove(item))
-            {
-                OnRemove(item);
-                return true;
-            }
-            return false;
-        }
-
-        public void RemoveAt(int index)
-        {
-            Remove(_items[index]);
-        }
-
-        public void Clear()
-        {
-            for (int i = _items.Count-1; i >= 0; i--)
-            {
-                Remove(_items[i]);
-            }
-        }
-
-        public bool Contains(T item) => _items.Contains(item);
-
-        public void CopyTo(T[] array, int arrayIndex) => _items.CopyTo(array, arrayIndex);
-
-        public int IndexOf(T item) => _items.IndexOf(item);
-
-        public IEnumerator<T> GetEnumerator() => _items.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
         protected virtual T GetNewItem()
         {
-            return UnityEngine.Object.Instantiate(_itemPrefab, _transform);
+            return Object.Instantiate(itemPrefab, transform);
         }
 
         protected virtual void OnRemove(T item)
         {
-            UnityEngine.Object.Destroy(item.gameObject);
+            Object.Destroy(item.gameObject);
         }
     }
 }

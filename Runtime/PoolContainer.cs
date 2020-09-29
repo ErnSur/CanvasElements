@@ -11,6 +11,7 @@ namespace QuickEye.Utility
         public GameObjectPool<T> pool;
 
         public PoolContainer() { }
+
         public PoolContainer(Transform transform, T itemPrefab) : base(transform, itemPrefab)
         {
             pool = new GameObjectPool<T>(transform, itemPrefab, 0);
